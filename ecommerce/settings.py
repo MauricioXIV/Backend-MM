@@ -30,7 +30,7 @@ DATABASES = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-PORT = os.environ.get('PORT', 8000)
+PORT = os.environ.get('PORT', 8080)
 
 
 environ.Env.read_env(BASE_DIR / ".env")
