@@ -19,16 +19,12 @@ from dotenv import load_dotenv
 
 load_dotenv() 
 
-PORT = os.getenv('PORT', 8080)
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
-
-DATABASE_URL = os.getenv('DATABASE_URL_PUBLICA')
-print(DATABASE_URL)
 
 
 os.environ.setdefault("PGDATABASE", "railway")
@@ -38,10 +34,6 @@ os.environ.setdefault("PGHOST", "localhost")
 os.environ.setdefault("PGPORT", "5432")
 
 
-
-DATABASES = {
-    'default': dj_database_url.config(default=os.getenv('DATABASE_URL_PUBLICA'))
-}
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 MEDIA_URL = '/media/'
@@ -173,7 +165,6 @@ CORS_ALLOWED_ORIGINS = [
     "https://f2ea-201-130-218-103.ngrok-free.app",
 ]
 
-ALLOWED_HOSTS = ["*"]
 
 CSRF_TRUSTED_ORIGINS = [
     "http://127.0.0.1:5173",
@@ -189,7 +180,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
-    
+
     'DEFAULT_AUTHENTICATION_CLASSES':  (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
