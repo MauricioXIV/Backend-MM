@@ -14,6 +14,10 @@ from pathlib import Path
 import environ
 import os
 from datetime import timedelta
+import dj_database_url
+from dotenv import load_dotenv
+
+load_dotenv() 
 
 PORT = os.getenv('PORT', 8080)
 
@@ -23,15 +27,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
+DATABASE_URL = os.getenv('DATABASE_URL_PUBLICA')
+print(DATABASE_URL)
+
 
 DATABASES = {
-    'default': env.db('DATABASE_URL') 
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL_PUBLICA'))
 }
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-
 
 
 environ.Env.read_env(BASE_DIR / ".env")
