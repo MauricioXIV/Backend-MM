@@ -15,6 +15,8 @@ import environ
 import os
 from datetime import timedelta
 
+PORT = os.getenv('PORT', 8080)
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
@@ -30,7 +32,6 @@ DATABASES = {
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-PORT = os.environ.get('PORT', 8080)
 
 
 environ.Env.read_env(BASE_DIR / ".env")
