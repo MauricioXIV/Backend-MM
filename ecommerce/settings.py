@@ -58,7 +58,7 @@ PGPASSWORD= os.getenv("PGPASSWORD")
 PGHOST= os.getenv("PGHOST")
 PGPORT= os.getenv("PGPORT")
 
-ALLOWED_HOSTS = ["backend-mm-production.up.railway.app", "localhost"]
+ALLOWED_HOSTS = ["backend-mm-production.up.railway.app", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -194,7 +194,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://67eb836e5fa04200086e30bb--marketmasterplus.netlify.app",
     "https://marketmasterplus.netlify.app",
     "https://f2ea-201-130-218-103.ngrok-free.app",
-    "https://backend-mm-production.up.railway.app/",
+    "https://backend-mm-production.up.railway.app",
 ]
 
 
