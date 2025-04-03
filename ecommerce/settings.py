@@ -53,7 +53,7 @@ DEBUG = env("DEBUG")
 DATABASE_URL_PRIVADA = env("DATABASE_URL_PRIVADA")
 DATABASE_URL_PUBLICA = env("DATABASE_URL_PUBLICA")
 
-ALLOWED_HOSTS = ["https://backend-mm-production.up.railway.app/", "localhost"]
+ALLOWED_HOSTS = ["backend-mm-production.up.railway.app", "localhost"]
 
 
 # Application definition
