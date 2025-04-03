@@ -2,3 +2,4 @@ pollo
 __pycache__
 db.sqlite3
 staticfiles
+env

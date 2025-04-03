@@ -27,11 +27,12 @@ env = environ.Env(DEBUG=(bool, False))
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 
 
-os.environ.setdefault("PGDATABASE", "railway")
-os.environ.setdefault("PGUSER", "postgres")
-os.environ.setdefault("PGPASSWORD", "otoJSGBMRxCSXbuChWKAywDiwjDKPDuV")
-os.environ.setdefault("PGHOST", "postgres.railway.internal")
-os.environ.setdefault("PGPORT", "5432")
+os.environ.setdefault("PGDATABASE", os.getenv("PGDATABASE"))
+os.environ.setdefault("PGUSER", os.getenv("PGUSER"))
+os.environ.setdefault("PGPASSWORD", os.getenv("PGPASSWORD"))
+os.environ.setdefault("PGHOST", os.getenv("PGHOST"))
+os.environ.setdefault("PGPORT", os.getenv("PGPORT"))
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -49,6 +50,8 @@ SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
+DATABASE_URL_PRIVADA = env("DATABASE_URL_PRIVADA")
+DATABASE_URL_PUBLICA = env("DATABASE_URL_PUBLICA")
 
 ALLOWED_HOSTS = ["https://backend-mm-production.up.railway.app/", "localhost"]
 
@@ -112,7 +115,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default="postgresql://postgres:otoJSGBMRxCSXbuChWKAywDiwjDKPDuV@shortline.proxy.rlwy.net:44054/railway"
+        default= env("DATABASE_URL_PUBLICA")
     )
 }
 
