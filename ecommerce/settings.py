@@ -46,12 +46,17 @@ environ.Env.read_env(BASE_DIR / ".env")
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
+SECRET_KEY = os.getenv("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env("DEBUG")
-DATABASE_URL_PRIVADA = env("DATABASE_URL_PRIVADA")
-DATABASE_URL_PUBLICA = env("DATABASE_URL_PUBLICA")
+DEBUG = os.getenv("DEBUG")
+DATABASE_URL = os.getenv("DATABASE_URL")
+DATABASE_URL_PUBLICA = os.getenv("DATABASE_URL_PUBLICA")
+PGDATABASE= os.getenv("PGDATABASE")
+PGUSER= os.getenv("PGUSER")
+PGPASSWORD= os.getenv("PGPASSWORD")
+PGHOST= os.getenv("PGHOST")
+PGPORT= os.getenv("PGPORT")
 
 ALLOWED_HOSTS = ["backend-mm-production.up.railway.app", "localhost"]
 
@@ -115,7 +120,7 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default= env("DATABASE_URL_PUBLICA")
+        default=os.getenv("DATABASE_URL_PUBLICA")
     )
 }
 
@@ -231,7 +236,8 @@ SIMPLE_JWT = {
 AUTH_USER_MODEL = 'login.User'
 
 CORS_ALLOW_CREDENTIALS = True
-CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
 CSRF_COOKIE_SAMESITE = 'Lax'
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SAMESITE = 'Lax'
