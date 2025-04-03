@@ -30,8 +30,8 @@ environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 os.environ.setdefault("PGDATABASE", "railway")
 os.environ.setdefault("PGUSER", "postgres")
 os.environ.setdefault("PGPASSWORD", "otoJSGBMRxCSXbuChWKAywDiwjDKPDuV")
-os.environ.setdefault("PGHOST", "localhost")
-os.environ.setdefault("PGPORT", "8000")
+os.environ.setdefault("PGHOST", "postgres.railway.internal")
+os.environ.setdefault("PGPORT", "5432")
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -50,7 +50,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env("DEBUG")
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["https://backend-mm-production.up.railway.app/", "localhost"]
 
 
 # Application definition
@@ -108,6 +108,14 @@ WSGI_APPLICATION = 'ecommerce.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
+
+
+DATABASES = {
+    'default': dj_database_url.config(
+        default="postgresql://postgres:otoJSGBMRxCSXbuChWKAywDiwjDKPDuV@shortline.proxy.rlwy.net:44054/railway"
+    )
+}
+
 
 
 
@@ -178,6 +186,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://67eb836e5fa04200086e30bb--marketmasterplus.netlify.app",
     "https://marketmasterplus.netlify.app",
     "https://f2ea-201-130-218-103.ngrok-free.app",
+    "https://backend-mm-production.up.railway.app/",
 ]
 
 
