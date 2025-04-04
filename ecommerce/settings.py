@@ -195,6 +195,7 @@ CSRF_TRUSTED_ORIGINS = [
     "https://marketmasterplus.netlify.app",
     "https://f2ea-201-130-218-103.ngrok-free.app",
     "https://backend-mm-production.up.railway.app",
+    "http://127.0.0.1:5174",
 ]
 
 
