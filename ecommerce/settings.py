@@ -182,6 +182,7 @@ CORS_ALLOWED_ORIGINS = [
     'https://67eb836e5fa04200086e30bb--marketmasterplus.netlify.app',
     "https://marketmasterplus.netlify.app",
     "https://f2ea-201-130-218-103.ngrok-free.app",
+    "http://127.0.0.1:5174",
 ]
 
 
